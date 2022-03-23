@@ -1,5 +1,5 @@
 package src.main.state;
 
-public class EventState {
+public class EventState implements IEventState {
     
 }

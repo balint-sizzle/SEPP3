@@ -1,5 +1,8 @@
 package src.main.state;
 
-public class UserState {
-    
+public class UserState implements IUserState{
+
+    UserState() {
+
+    }
 }

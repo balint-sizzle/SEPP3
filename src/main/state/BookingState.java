@@ -1,5 +1,5 @@
 package src.main.state;
 
-public class BookingState {
+public class BookingState implements IBookingState {
     
 }

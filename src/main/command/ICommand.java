@@ -3,6 +3,6 @@ import src.main.controller.Context;
 
 public interface ICommand {
 
-    public void execute(Context context);
-    public Object getResult();
+    void execute(Context context);
+    long getResult();
 }

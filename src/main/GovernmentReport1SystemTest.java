@@ -1,14 +1,14 @@
 package src.main;
+
 import command.*;
 import controller.Controller;
 import logging.Logger;
 import model.*;
-import src.main.model.EventPerformance;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import src.main.model.EventPerformance;
 
 import java.time.LocalDateTime;
 import java.util.Collection;

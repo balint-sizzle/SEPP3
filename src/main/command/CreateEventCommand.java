@@ -4,10 +4,11 @@ import src.main.model.*;
 
 public abstract class CreateEventCommand implements ICommand {
 
-    private final String title;
-    private final EventType type;
+    protected Long eventNumberResult;
+    protected String title;
+    protected EventType type;
 
-    CreateEventCommand(String title, EventType type) {
+    public CreateEventCommand(String title, EventType type) {
         this.title = title;
         this.type = type;
     }
@@ -16,4 +17,9 @@ public abstract class CreateEventCommand implements ICommand {
         User currentUser = context.getUserState().getCurrentUser();
         return (currentUser instanceof EntertainmentProvider);
     }
+
+    public Long getResult() {
+        return eventNumberResult;
+    }
+
 }

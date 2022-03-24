@@ -1,5 +1,5 @@
-package src.main.state;
+package main.state;
 
-public class SponsorshipState {
-    
+public class SponsorshipState extends Object implements ISponsorshipState{
+
 }

@@ -1,4 +1,4 @@
-package src.main.command;
+package main.command;
 
 public class UpdateProfileCommand {
     

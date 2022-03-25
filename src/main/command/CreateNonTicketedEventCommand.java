@@ -1,6 +1,7 @@
 package src.main.command;
 import org.junit.Test;
 import src.main.controller.Context;
+import src.main.model.Event;
 import src.main.model.EventType;
 
 import static org.junit.Assert.assertTrue;

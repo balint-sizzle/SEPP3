@@ -4,7 +4,7 @@ import src.main.model.*;
 
 public abstract class CreateEventCommand implements ICommand {
 
-    protected Long eventNumberResult;
+    protected long eventNumberResult;
     protected String title;
     protected EventType type;
 

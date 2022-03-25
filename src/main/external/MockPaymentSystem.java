@@ -1,4 +1,4 @@
-package src.main.external;
+package main.external;
 
 public class MockPaymentSystem {
     

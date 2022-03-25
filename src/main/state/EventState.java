@@ -1,5 +1,5 @@
-package src.main.state;
+package main.state;
 
-public class EventState {
-    
+public class EventState extends Object implements IEventState{
+
 }

@@ -1,4 +1,4 @@
-package main.command;
+package src.main.command;
 import main.controller.Context;
 import main.model.User;
 

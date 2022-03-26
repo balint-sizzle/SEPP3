@@ -1,4 +1,4 @@
-package main.state;
+package src.main.state;
 
 import java.util.HashMap;
 import java.util.Map;

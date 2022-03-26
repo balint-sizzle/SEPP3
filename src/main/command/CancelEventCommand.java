@@ -1,4 +1,4 @@
-package main.command;
+package src.main.command;
 
 public class CancelEventCommand {
     

@@ -1,4 +1,4 @@
-package main.state;
+package src.main.state;
 
 public class BookingState extends Object implements IBookingState{
 

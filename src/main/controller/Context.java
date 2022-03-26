@@ -1,4 +1,4 @@
-package main.controller;
+package src.main.controller;
 
 import main.external.MockEntertainmentProviderSystem;
 import main.external.MockPaymentSystem;

@@ -1,4 +1,4 @@
-package main.model;
+package src.main.model;
 
 // TODO:
 // password needs hashed by bycrypt

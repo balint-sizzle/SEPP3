@@ -4,7 +4,7 @@ public class BookEventCommand extends Object implements ICommand{
 
     public long eventNumber;
     public long performanceNumber;
-    int numTicketsRequested;
+    public int numTicketsRequested;
 
     public BookEventCommand(long eventNumber, long performanceNumber, int numTicketsRequested){
         this.eventNumber = eventNumber;

@@ -44,5 +44,4 @@ public class RegisterConsumerCommand extends Object implements ICommand {
             return null;
         }
     }
-
 }

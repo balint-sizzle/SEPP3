@@ -68,5 +68,4 @@ public class RegisterEntertainmentProviderCommand extends Object implements ICom
             return null;
         }
     }
-
 }

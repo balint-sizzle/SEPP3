@@ -1,4 +1,3 @@
-Login
 package main.controller;
 
 import main.external.MockEntertainmentProviderSystem;

@@ -1,7 +1,6 @@
 package main.command;
-import main.controller.Context;
 
 public interface ICommand {
-    public void execute(Context context);
+    public void execute(main.controller.Context context);
     public Object getResult();
 }

@@ -9,10 +9,7 @@ public abstract class User extends Object{
     String password;
     String paymentAccountEmail;
     
-    protected User(String input_email,
-                   String input_password,
-                   String input_paymentAcountEmail)
-                {
+    protected User(String input_email, String input_password, String input_paymentAcountEmail) {
         this.email = input_email;
         this.password = input_password; 
         this.paymentAccountEmail = input_paymentAcountEmail;

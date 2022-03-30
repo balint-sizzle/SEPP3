@@ -1,5 +1,7 @@
 package main.model;
 
+import main.state.BookingStatus;
+
 import java.time.LocalDateTime;
 
 public class Booking extends Object{

@@ -2,6 +2,7 @@ package src.main.command;
 import src.main.controller.Context;
 import src.main.model.*;
 
+
 public abstract class CreateEventCommand implements ICommand {
 
     protected long eventNumberResult;

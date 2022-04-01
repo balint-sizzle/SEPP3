@@ -1,4 +1,4 @@
-package src.main.command;
+package main.command;
 
 import org.junit.Test;
 import src.main.controller.Context;

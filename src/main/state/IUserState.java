@@ -8,5 +8,4 @@ public interface IUserState {
     Map<String,User> getAllUsers();
     User getCurrentUser();
     void setCurrentUser(User user);
-
 }

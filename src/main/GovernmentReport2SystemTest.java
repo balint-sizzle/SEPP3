@@ -1,9 +1,9 @@
-package src.main;
-public import command.*;
-import controller.Controller;
-import logging.Logger;
-import model.*;
-import src.main.model.EventPerformance;
+package main;
+import main.command.*;
+import main.controller.Controller;
+import main.logging.Logger;
+import main.model.*;
+import main.model.EventPerformance;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

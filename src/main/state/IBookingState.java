@@ -1,3 +1,3 @@
-package src.main.state;
+package main.state;
 
-public interface IBookingState {
+public interface IBookingState {}

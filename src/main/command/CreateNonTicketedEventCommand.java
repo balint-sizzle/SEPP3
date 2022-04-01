@@ -1,8 +1,8 @@
-package src.main.command;
+package main.command;
 import org.junit.Test;
-import src.main.controller.Context;
-import src.main.model.Event;
-import src.main.model.EventType;
+import main.controller.Context;
+import main.model.Event;
+import main.model.EventType;
 
 import static org.junit.Assert.assertTrue;
 
@@ -16,4 +16,6 @@ public class CreateNonTicketedEventCommand extends CreateEventCommand {
     public void execute(Context context) {
         assertTrue(isUserAllowedToCreateEvent(context));
     }
+
+}
 

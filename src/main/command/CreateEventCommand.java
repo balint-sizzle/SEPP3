@@ -1,6 +1,6 @@
-package src.main.command;
-import src.main.controller.Context;
-import src.main.model.*;
+package main.command;
+import main.controller.Context;
+import main.model.*;
 
 
 public abstract class CreateEventCommand implements ICommand {

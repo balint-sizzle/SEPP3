@@ -1,5 +1,5 @@
-package src.main.command;
-import src.main.controller.Context;
+package main.command;
+import main.controller.Context;
 
 public interface ICommand {
 

@@ -1,5 +1,5 @@
 package main.model;
-import src.main.model.Event;
+import main.model.Event;
 import main.external.EntertainmentProviderSystem;
 import java.util.List;
 

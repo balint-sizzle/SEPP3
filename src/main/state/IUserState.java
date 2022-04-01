@@ -1,5 +1,5 @@
-package src.main.state;
-import src.main.model.User;
+package main.state;
+import main.model.User;
 import java.util.Map;
 
 public interface IUserState {

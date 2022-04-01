@@ -1,5 +1,5 @@
-package src.main.state;
-import src.main.model.*;
+package main.state;
+import main.model.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
 package main.command;
 
 import org.junit.Test;
-import src.main.controller.Context;
-import src.main.model.EventType;
-import src.main.model.TicketedEvent;
+import main.controller.Context;
+import main.model.EventType;
+import main.model.TicketedEvent;
 
 import static org.junit.Assert.assertTrue;
 

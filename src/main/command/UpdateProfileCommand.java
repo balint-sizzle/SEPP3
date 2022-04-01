@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-package main.command;
 
->>>>>>> origin/Login
+package main.command;
 public class UpdateProfileCommand {
     
 }

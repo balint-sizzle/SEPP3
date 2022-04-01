@@ -1,12 +1,11 @@
-package main.state;
-
+package src.main.state;
+import src.main.model.User;
 import java.util.Map;
-import main.model.User;
 
 public interface IUserState {
-    
-    public void addUser(User user);
-    public Map<String, User> getAllUsers();
-    public User getCurrentUser();
-    public void setCurrentUser(User user);
+
+    void addUser(User user);
+    Map<String,User> getAllUsers();
+    User getCurrentUser();
+    void setCurrentUser(User user);
 }

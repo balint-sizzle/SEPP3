@@ -1,5 +1,5 @@
 package main.external;
 
-public class MockPaymentSystem {
+public class MockPaymentSystem implements PaymentSystem {
     
 }

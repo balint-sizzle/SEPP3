@@ -1,5 +1,5 @@
 package main.state;
 
-public class BookingState extends Object implements IBookingState{
-
+public class BookingState implements IBookingState {
 }
+

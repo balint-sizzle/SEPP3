@@ -1,5 +1,5 @@
-package main.state;
+package src.main.state;
 
 public interface IEventState {
-    
 }
+

@@ -1,6 +1,8 @@
-package main.command;
+package src.main.command;
+import src.main.controller.Context;
 
 public interface ICommand {
-    public void execute(main.controller.Context context);
-    public Object getResult();
+
+    void execute(Context context);
+    Object getResult();
 }

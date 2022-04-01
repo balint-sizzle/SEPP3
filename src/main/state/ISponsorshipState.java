@@ -1,5 +1,3 @@
-package main.state;
+package src.main.state;
 
-public interface ISponsorshipState {
-    
-}
+public interface ISponsorshipState {}

@@ -12,7 +12,6 @@ public class CreateNonTicketedEventCommand extends CreateEventCommand {
         super(title, type);
     }
 
-    @Test
     public void execute(Context context) {
         assertTrue(isUserAllowedToCreateEvent(context));
     }

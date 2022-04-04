@@ -22,7 +22,6 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
         this.requestSponsorship = requestSponsorship;
     }
 
-    @Test
     public void execute(Context context) {
         assertTrue(isUserAllowedToCreateEvent(context));
     }

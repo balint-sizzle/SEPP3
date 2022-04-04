@@ -35,7 +35,7 @@ public class RegisterEntertainmentProviderCommand extends Object implements ICom
      }
 
     @Override
-    public void execute(Context context) {
+    public boolean execute(Context context) {
         boolean noneNull = !(orgName == null ||
                              orgAddress == null ||
                              paymentAccountEmail == null ||
@@ -50,6 +50,7 @@ public class RegisterEntertainmentProviderCommand extends Object implements ICom
         boolean uniqueOrgAddress = !context.getUserState().getAllUsers().containsKey(orgAddress);
 
         isValid = noneNull && uniqueEmail && (uniqueOrgName || uniqueOrgAddress);
+        return noneNull;
     }
 
     @Override

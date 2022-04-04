@@ -20,7 +20,7 @@ public class LoginCommand extends Object implements ICommand{
     }
 
     @Override
-    public void execute(Context context) {
+    public boolean execute(Context context) {
         if (context.getUserState().getAllUsers().containsKey(this.email))
         {
             User user = context.getUserState().getAllUsers().get(this.email);
@@ -30,7 +30,8 @@ public class LoginCommand extends Object implements ICommand{
                 this.userResult = user;
             }
         }
-        
+
+        return false;
     }
 
     @Override

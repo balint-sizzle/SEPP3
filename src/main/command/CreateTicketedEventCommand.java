@@ -3,7 +3,6 @@ package main.command;
 import org.junit.Test;
 import main.controller.Context;
 import main.model.EventType;
-import main.model.TicketedEvent;
 
 import static org.junit.Assert.assertTrue;
 
@@ -23,8 +22,9 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
     }
 
     @Test
-    public void execute(Context context) {
+    public boolean execute(Context context) {
         assertTrue(isUserAllowedToCreateEvent(context));
+        return false;
     }
     
 }

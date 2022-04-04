@@ -24,7 +24,7 @@ public class RegisterConsumerCommand extends Object implements ICommand {
         this.paymentAccountEmail = paymentAccountEmail;
      }
 
-    public void execute(Context context) {
+    public boolean execute(Context context) {
         boolean noneNull = !(name == null ||
                              email == null ||
                              phoneNumber == null ||
@@ -34,6 +34,7 @@ public class RegisterConsumerCommand extends Object implements ICommand {
         boolean isUnique = !context.getUserState().getAllUsers().containsKey(email);
 
         isValid = noneNull && isUnique;
+        return noneNull;
     }
 
     public Consumer getResult() {

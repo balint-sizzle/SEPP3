@@ -18,7 +18,8 @@ public class SponsorshipState implements ISponsorshipState {
 
     public SponsorshipState(ISponsorshipState other) {
         sponsorshipRequests = new ArrayList<>(other.getAllSponsorshipRequests());
-        nextSponsorshipId = other.get
+        // get the next ID by using the number of existing requests, since requests are never removed
+        nextSponsorshipId = sponsorshipRequests.size() + 1;
     }
 
     @Override
@@ -26,7 +27,6 @@ public class SponsorshipState implements ISponsorshipState {
         SponsorshipRequest request = new SponsorshipRequest(nextSponsorshipId, event);
         nextSponsorshipId++;
         event.setSponsorshipRequest(request);
-
         return request;
     }
 

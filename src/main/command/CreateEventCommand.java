@@ -5,7 +5,7 @@ import main.model.*;
 
 public abstract class CreateEventCommand implements ICommand {
 
-    protected long eventNumberResult;
+    protected Long eventIdResult;
     protected String title;
     protected EventType type;
 
@@ -20,7 +20,7 @@ public abstract class CreateEventCommand implements ICommand {
     }
 
     public Long getResult() {
-        return eventNumberResult;
+        return eventIdResult;
     }
 
 }

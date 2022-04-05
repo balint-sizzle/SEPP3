@@ -1,9 +1,12 @@
 package main.command;
 
+import main.model.*;
+import main.state.EventState;
+import main.state.IEventState;
+import main.state.SponsorshipState;
+import main.state.UserState;
 import org.junit.Test;
 import main.controller.Context;
-import main.model.EventType;
-import main.model.TicketedEvent;
 
 import static org.junit.Assert.assertTrue;
 
@@ -23,7 +26,16 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
     }
 
     public void execute(Context context) {
-        assertTrue(isUserAllowedToCreateEvent(context));
+        if (isUserAllowedToCreateEvent(context)) {
+            EventState eventState = (EventState) context.getEventState();
+            UserState userState = (UserState) context.getUserState();
+            SponsorshipState sponsorshipState = (SponsorshipState) context.getSponsorshipState();
+
+            TicketedEvent event = eventState.createTicketedEvent((EntertainmentProvider) userState.getCurrentUser(),
+                    title, type, ticketPrice, numTickets);
+            sponsorshipState.addSponsorshipRequest(event);
+            eventIdResult = event.getEventNumber();
+        }
     }
     
 }

@@ -5,10 +5,6 @@ import main.model.GovernmentRepresentative;
 import main.model.SponsorshipRequest;
 import main.model.SponsorshipStatus;
 import main.model.User;
-import main.state.SponsorshipState;
-import org.junit.Assert;
-import org.junit.Test;
-
 public class RespondSponsorshipCommand {
 
     private long requestId;
@@ -24,16 +20,16 @@ public class RespondSponsorshipCommand {
         User currentUser = context.getUserState().getCurrentUser();
         SponsorshipRequest request = context.getSponsorshipState().findRequestByNumber(requestId);
 
-        Assert.assertTrue((currentUser instanceof GovernmentRepresentative) && (0 <= percentToSponsor)
+        successResult = ((currentUser instanceof GovernmentRepresentative) && (0 <= percentToSponsor)
         && (percentToSponsor <= 100) && (request != null) && (request.getStatus() == SponsorshipStatus.PENDING));
+
+        if (successResult) {
+            request.accept(percentToSponsor, currentUser.getPaymentAccountEmail());
+        }
     }
 
     public Boolean getResult(Context context) {
-        User currentUser = context.getUserState().getCurrentUser();
-        SponsorshipRequest request = context.getSponsorshipState().findRequestByNumber(requestId);
-
-        return ((currentUser instanceof GovernmentRepresentative) && (0 <= percentToSponsor)
-                && (percentToSponsor <= 100) && (request != null) && (request.getStatus() == SponsorshipStatus.PENDING));
+        return successResult;
     }
     
 }

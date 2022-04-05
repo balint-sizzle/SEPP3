@@ -8,8 +8,6 @@ import main.state.UserState;
 import org.junit.Test;
 import main.controller.Context;
 
-import static org.junit.Assert.assertTrue;
-
 public class CreateTicketedEventCommand extends CreateEventCommand {
 
     private int numTickets;
@@ -36,6 +34,7 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
             sponsorshipState.addSponsorshipRequest(event);
             eventIdResult = event.getEventNumber();
         }
+
     }
-    
+  
 }

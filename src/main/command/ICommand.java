@@ -3,6 +3,6 @@ import main.controller.Context;
 
 public interface ICommand {
 
-    void execute(Context context);
+    boolean execute(Context context);
     Object getResult();
 }

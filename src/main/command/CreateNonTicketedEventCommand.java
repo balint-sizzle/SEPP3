@@ -1,4 +1,5 @@
 package main.command;
+
 import main.controller.Context;
 import main.model.EntertainmentProvider;
 import main.model.EventType;
@@ -23,6 +24,5 @@ public class CreateNonTicketedEventCommand extends CreateEventCommand {
             eventIdResult = event.getEventNumber();
         }
     }
-
 }
 

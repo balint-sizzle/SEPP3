@@ -1,9 +1,13 @@
 package main.command;
-import org.junit.Test;
-import main.controller.Context;
-import main.model.EventType;
 
-import static org.junit.Assert.assertTrue;
+import main.controller.Context;
+import main.model.EntertainmentProvider;
+import main.model.EventType;
+import main.model.NonTicketedEvent;
+import main.state.EventState;
+import main.state.IEventState;
+import main.state.UserState;
+import org.junit.Assert;
 
 public class CreateNonTicketedEventCommand extends CreateEventCommand {
 
@@ -11,11 +15,14 @@ public class CreateNonTicketedEventCommand extends CreateEventCommand {
         super(title, type);
     }
 
-    @Test
-    public boolean execute(Context context) {
-        assertTrue(isUserAllowedToCreateEvent(context));
-        return false;
-    }
+    public void execute(Context context) {
+        if (isUserAllowedToCreateEvent(context)) {
+            EventState eventState = (EventState) context.getEventState();
+            UserState userState = (UserState) context.getUserState();
 
+            NonTicketedEvent event = eventState.createNonTicketedEvent((EntertainmentProvider) userState.getCurrentUser(),title, type);
+            eventIdResult = event.getEventNumber();
+        }
+    }
 }
 

@@ -2,7 +2,7 @@ package main.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class EventPerformance {
+public class EventPerformance extends Object{
 
     private long performanceId;
     private Event event;

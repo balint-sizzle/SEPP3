@@ -1,4 +1,4 @@
-package src.main.logging;
+package main.logging;
 
 public class Logger {
     

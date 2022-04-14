@@ -16,7 +16,7 @@ public abstract class UpdateProfileCommand implements ICommand {
         // check if passwords match
         User currentUser = context.getUserState().getCurrentUser();
 
-        // check if anyone else is registered with email
+        // check if anyone else is registered with the new email already
         boolean emailNotRegistered = true;
         Collection<User> users = context.getUserState().getAllUsers().values();
 

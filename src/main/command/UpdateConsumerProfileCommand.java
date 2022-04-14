@@ -36,7 +36,7 @@ public class UpdateConsumerProfileCommand extends UpdateProfileCommand {
 
         if (isProfileUpdateInvalid(context, oldPassword, newEmail) && newName != null &&
         newEmail != null && newPhoneNumber != null && newPassword != null &&
-        newPaymentAccountEmail != null && newPreferences != null && currentUser != null &&
+        newPaymentAccountEmail != null && newPreferences != null &&
         currentUser instanceof Consumer){
             Consumer consumer = (Consumer) currentUser;
             consumer.setName(newName);
@@ -45,6 +45,10 @@ public class UpdateConsumerProfileCommand extends UpdateProfileCommand {
             consumer.updatePassword(newPassword);
             consumer.setPaymentAccountEmail(newPaymentAccountEmail);
             consumer.setPreferences(newPreferences);
+            successResult = true;
+        }
+        else {
+            successResult = false;
         }
     }
     

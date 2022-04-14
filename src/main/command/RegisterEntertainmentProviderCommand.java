@@ -1,20 +1,21 @@
 package main.command;
 import main.controller.Context;
-import src.main.command.ICommand;
+import main.command.ICommand;
 import main.model.EntertainmentProvider;
 
 import java.util.List;
 
-public class RegisterEntertainmentProviderCommand extends Object implements ICommand {
-    private String orgName;
-    private String orgAddress;
-    private String paymentAccountEmail;
-    private String mainRepName;
-    private String mainRepEmail;
-    private String password;
-    private List<String> otherRepNames;
-    private List<String> otherRepEmails;
-    private boolean isValid;
+public class RegisterEntertainmentProviderCommand implements ICommand {
+    private final String orgName;
+    private final String orgAddress;
+    private final String paymentAccountEmail;
+    private final String mainRepName;
+    private final String mainRepEmail;
+    private final String password;
+    private final List<String> otherRepNames;
+    private final List<String> otherRepEmails;
+    private EntertainmentProvider newEntertainmentProviderResult;
+    private EntertainmentProvider attribute;
 
     public RegisterEntertainmentProviderCommand(String orgName,
                                                 String orgAddress,
@@ -35,7 +36,7 @@ public class RegisterEntertainmentProviderCommand extends Object implements ICom
      }
 
     @Override
-    public boolean execute(Context context) {
+    public void execute(Context context) {
         boolean noneNull = !(orgName == null ||
                              orgAddress == null ||
                              paymentAccountEmail == null ||
@@ -49,24 +50,26 @@ public class RegisterEntertainmentProviderCommand extends Object implements ICom
         boolean uniqueOrgName = !context.getUserState().getAllUsers().containsKey(orgName);
         boolean uniqueOrgAddress = !context.getUserState().getAllUsers().containsKey(orgAddress);
 
-        isValid = noneNull && uniqueEmail && (uniqueOrgName || uniqueOrgAddress);
-        return noneNull;
+        boolean isValid = noneNull && uniqueEmail && (uniqueOrgName || uniqueOrgAddress);
+
+        if (!isValid) {
+            newEntertainmentProviderResult = null;
+            throw new RuntimeException("Invalid request");
+        }
+        else {
+            newEntertainmentProviderResult = new EntertainmentProvider(orgName,
+                                                                       orgAddress,
+                                                                       paymentAccountEmail,
+                                                                       mainRepName,
+                                                                       mainRepEmail,
+                                                                       password,
+                                                                       otherRepNames,
+                                                                       otherRepEmails);
+        }
     }
 
     @Override
     public EntertainmentProvider getResult() {
-        if (isValid) {
-            return new EntertainmentProvider(orgName,
-                                             orgAddress,
-                                             paymentAccountEmail,
-                                             mainRepName,
-                                             mainRepEmail,
-                                             password,
-                                             otherRepNames,
-                                             otherRepEmails);
-        }
-        else {
-            return null;
-        }
+        return newEntertainmentProviderResult;
     }
 }

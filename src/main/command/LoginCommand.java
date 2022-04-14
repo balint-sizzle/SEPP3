@@ -3,14 +3,14 @@ import main.controller.Context;
 import main.model.User;
 
 
-public class LoginCommand extends Object implements ICommand{
+public class LoginCommand implements ICommand{
     enum LogStatus{
         USER_LOGIN_SUCCESS,
         USER_LOGIN_EMAIL_NOT_REGISTERED,
         USER_LOGIN_WRONG_PASSWORD
     }
-    private String email;
-    private String password;
+    private final String email;
+    private final String password;
     private User userResult;
 
     public LoginCommand(String login_email, String login_password){
@@ -20,7 +20,7 @@ public class LoginCommand extends Object implements ICommand{
     }
 
     @Override
-    public boolean execute(Context context) {
+    public void execute(Context context) {
         if (context.getUserState().getAllUsers().containsKey(this.email))
         {
             User user = context.getUserState().getAllUsers().get(this.email);
@@ -30,8 +30,6 @@ public class LoginCommand extends Object implements ICommand{
                 this.userResult = user;
             }
         }
-
-        return false;
     }
 
     @Override

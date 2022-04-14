@@ -1,16 +1,15 @@
 package main.command;
 import main.controller.Context;
 import main.model.Consumer;
-import src.main.command.ICommand;
 
 
-public class RegisterConsumerCommand extends Object implements ICommand {
-    private String name;
-    private String email;
-    private String phoneNumber;
-    private String password;
-    private String paymentAccountEmail;
-    private boolean isValid;
+public class RegisterConsumerCommand implements ICommand {
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
+    private final String password;
+    private final String paymentAccountEmail;
+    private Consumer newConsumerResult;
 
     public RegisterConsumerCommand(String name,
                                    String email,
@@ -24,7 +23,7 @@ public class RegisterConsumerCommand extends Object implements ICommand {
         this.paymentAccountEmail = paymentAccountEmail;
      }
 
-    public boolean execute(Context context) {
+    public void execute(Context context) {
         boolean noneNull = !(name == null ||
                              email == null ||
                              phoneNumber == null ||
@@ -33,16 +32,18 @@ public class RegisterConsumerCommand extends Object implements ICommand {
         
         boolean isUnique = !context.getUserState().getAllUsers().containsKey(email);
 
-        isValid = noneNull && isUnique;
-        return noneNull;
+        boolean isValid = noneNull && isUnique;
+
+        if (!isValid) {
+            newConsumerResult = null;
+            throw new RuntimeException("Null value or not unique.");
+        }
+        else {
+            newConsumerResult = new Consumer(name, email, phoneNumber, password, paymentAccountEmail);
+        }
     }
 
     public Consumer getResult() {
-        if (isValid) {
-            return new Consumer(name, email, phoneNumber, password, paymentAccountEmail);
-        }
-        else {
-            return null;
-        }
+        return newConsumerResult;
     }
 }

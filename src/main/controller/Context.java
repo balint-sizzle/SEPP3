@@ -52,13 +52,4 @@ public class Context {
         return paymentSystem;
     }
 //
-    public MockPaymentSystem getPaymentSystem(){ return this.paymentSystem;}
-
-    public IBookingState getBookingState(){return this.bookingState;}
-
-    public IEventState getEventState() {return this.eventState;}
-
-    public IUserState getUserState() {return this.userState;}
-
-    public ISponsorshipState getSponsorshipState() {return this.sponsorshipState;}
 }

@@ -1,4 +1,4 @@
 package main.model;
-public class GovernmentRepresentative {
+public class GovernmentRepresentative extends User{
     
 }

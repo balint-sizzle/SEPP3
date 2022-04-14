@@ -34,9 +34,10 @@ public class ListEventsCommand implements ICommand{
             if (user != null){
                 for (Event event : events){
                     if (user instanceof Consumer){
+                        Consumer consumer = (Consumer) user;
                         for (EventPerformance performance : event.getPerformances())
                             {
-                                ConsumerPreferences preferences = user.getPreferences();
+                                ConsumerPreferences preferences = consumer.getPreferences();
                                 if (preferences.preferSocialDistancing == performance.hasSocialDistancing() &&
                                     preferences.preferAirFiltration == performance.hasAirFiltration() &&
                                     preferences.preferOutdoorsOnly == performance.isOutdoors() &&

@@ -4,7 +4,7 @@ import main.state.IBookingState;
 
 import java.util.Arrays;
 
-enum BookingStatus {
+public enum BookingStatus {
     Active,
     CancelledByConsumer,
     CancelledByProvider,

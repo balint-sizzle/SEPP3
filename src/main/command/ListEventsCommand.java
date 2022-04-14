@@ -1,18 +1,18 @@
 package main.command;
 
 import main.controller.Context;
-import main.model.Event;
-import main.model.User;
-import main.model.Consumer;
-import main.model.EventStatus;
-import main.model.ConsumerPreferences;
-import main.model.EntertainmentProvider;
+import main.model.*;
 
-public enum LogStatus{LIST_USER_EVENTS_SUCCESS, LIST_USER_EVENTS_NOT_LOGGED_IN}
+import java.util.ArrayList;
+import java.util.List;
 
-public class ListEventsCommand {
-    boolean userEventsOnly;
-    boolean activeEventsOnly;
+enum LogStatus{LIST_USER_EVENTS_SUCCESS, LIST_USER_EVENTS_NOT_LOGGED_IN}
+
+public class ListEventsCommand implements ICommand{
+
+    private boolean userEventsOnly;
+    private boolean activeEventsOnly;
+    private List<Event> eventListResult;
     LogStatus userLoggedIn;
 
 
@@ -20,19 +20,18 @@ public class ListEventsCommand {
                                                             //provider: ones they created
                                                             //consumer: ones that match their preferences
                             boolean activeEventsOnly)
-                                    {
-                                        this.userEventsOnly = userEventsOnly;
-                                        this.activeEventsOnly = activeEventsOnly;
-                                        this.matches = new List();
-                                    }
+        {
+            this.userEventsOnly = userEventsOnly;
+            this.activeEventsOnly = activeEventsOnly;
+            this.eventListResult = new ArrayList<>();
+        }
     
     public void execute(Context context){
         List<Event> events = context.getEventState().getAllEvents();
-        
 
         if (this.userEventsOnly){
-            User user = context.getUserState();
-            if (user){
+            User user = context.getUserState().getCurrentUser();
+            if (user != null){
                 for (Event event : events){
                     if (user instanceof Consumer){
                         for (EventPerformance performance : event.getPerformances())
@@ -41,13 +40,13 @@ public class ListEventsCommand {
                                 if (preferences.preferSocialDistancing == performance.hasSocialDistancing() &&
                                     preferences.preferAirFiltration == performance.hasAirFiltration() &&
                                     preferences.preferOutdoorsOnly == performance.isOutdoors() &&
-                                    preferences.preferredMaxVenueSize <= performance.getMaxVenueSize() &&
-                                    preferences.preferredMaxCapacity <= performance.getMaxCapacity()){
+                                    preferences.preferredMaxVenueSize <= performance.getVenueSize() &&
+                                    preferences.preferredMaxCapacity <= performance.getCapacityLimit()){
                                     if (this.activeEventsOnly){
-                                        if (event.getStatus() == EventStatus.ACTIVE) this.matches.add(event);
+                                        if (event.getStatus() == EventStatus.ACTIVE) eventListResult.add(event);
                                     }
                                     else{
-                                        this.matches.add(event);
+                                        eventListResult.add(event);
                                         }
                                     }
                             }
@@ -56,11 +55,11 @@ public class ListEventsCommand {
                         if (user.equals(event.getOrganiser())){
                             if (this.activeEventsOnly){
                                 if (event.getStatus()==EventStatus.ACTIVE){
-                                    this.matches.add(event);
+                                    eventListResult.add(event);
                                 }
                             }
                             else{
-                                this.matches.add(event);
+                                eventListResult.add(event);
                             }
 
                         }
@@ -70,13 +69,13 @@ public class ListEventsCommand {
         }
         else{
             for (Event event : events){
-                if (event.getStatus == EventStatus.ACTIVE) this.matches.add(event);
+                if (event.getStatus() == EventStatus.ACTIVE) eventListResult.add(event);
             }
 
         }
     }
 
-    public List<Event> getResult(){
-        return this.matches;
+    public List<Event> getResult() {
+        return eventListResult;
     }
 }

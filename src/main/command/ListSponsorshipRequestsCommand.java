@@ -9,7 +9,7 @@ import main.state.SponsorshipState;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListSponsorshipRequestsCommand {
+public class ListSponsorshipRequestsCommand implements ICommand{
 
     private boolean pendingRequestsOnly;
     private List<SponsorshipRequest> requestListResult;

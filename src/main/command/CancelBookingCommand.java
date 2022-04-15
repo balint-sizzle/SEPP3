@@ -23,15 +23,17 @@ public class CancelBookingCommand implements ICommand {
             bookingList = consumer.getBookings();
         }
 
-        for (Booking booking : bookingList) {
-            if (booking.getBookingNumber() == this.bookingNumber) {
-                this.successResult = (booking.getStatus() == BookingStatus.Active &&
-                Duration.between(LocalDateTime.now(), booking.getEventPerformance().getStartDateTime()).toHours() > 24 && // not exactly sure this is correct
-                context.getPaymentSystem().processPayment(user.getEmail(),
-                booking.getEventPerformance().getEvent().getOrganiser().getEmail(),
-                booking.getAmountPaid()));
-                break;
-            }
+        if (!(bookingList == null || bookingList.isEmpty())){
+          for (Booking booking : bookingList) {
+              if (booking.getBookingNumber() == this.bookingNumber) {
+                  this.successResult = (booking.getStatus() == BookingStatus.Active &&
+                  Duration.between(LocalDateTime.now(), booking.getEventPerformance().getStartDateTime()).toHours() > 24 && // not exactly sure this is correct
+                  context.getPaymentSystem().processPayment(user.getEmail(),
+                  booking.getEventPerformance().getEvent().getOrganiser().getEmail(),
+                  booking.getAmountPaid()));
+                  break;
+              }
+          }
         }
     }
 

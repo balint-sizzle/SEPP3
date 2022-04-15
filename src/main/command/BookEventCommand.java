@@ -1,7 +1,9 @@
 package main.command;
 
 import main.controller.Context;
+import main.model.Booking;
 import main.model.Consumer;
+import main.model.TicketedEvent;
 
 public class BookEventCommand extends Object implements ICommand {
     //    BookEventCommand allows Consumers to book tickets for a specific EventPerformance.
@@ -24,12 +26,13 @@ public class BookEventCommand extends Object implements ICommand {
 //event number corresponds to an existing event
         //todo
 // event is a ticketed event
+        boolean isTicked = context.getEventState() instanceof TicketedEvent;
         //todo
 //number of requested tickets is not less than 1
+//        boolean notLessThan1 = context.getBookingState();
         //todo
 //performance number corresponds to an existing performance of the event
         //todo
-        boolean correspondsToExistingPOE = performanceNumber != 0;
 //the selected performance has not ended yet
         //todo
 //the requested number of tickets is still available according to the organiser's EntertainmentProviderSystem
@@ -42,8 +45,7 @@ public class BookEventCommand extends Object implements ICommand {
     @Override
     public Long getResult() {
 //A unique booking number corresponding to a Booking if successful and null otherwise
-
-
-        return null;
+        Booking booking = new Booking();
+        return booking.getBookingNumber();
     }
 }

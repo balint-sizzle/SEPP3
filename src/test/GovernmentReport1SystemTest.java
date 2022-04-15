@@ -1,9 +1,9 @@
-package main;
+
+
 import main.command.*;
 import main.controller.Controller;
 import main.logging.Logger;
 import main.model.*;
-import main.model.EventPerformance;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,9 +16,10 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class GovernmentReport2SystemTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class GovernmentReport1SystemTest {
     @BeforeEach
     void printTestName(TestInfo testInfo) {
         System.out.println(testInfo.getDisplayName());
@@ -340,11 +341,11 @@ public class GovernmentReport2SystemTest {
         controller.runCommand(new LogoutCommand());
     }
 
-    // Option 2:
-    // all the consumers who have active bookings
-    // for a certain entertainment provider's (ticketed, active) events
+    // Option 1) get all the bookings
+    // for performances which belong to active and sponsored events,
+    // and take place between two times (date+time), including at those exact times.
     @Test
-    void getConsumersWithActiveBookingsInOrgActiveEvents() {
+    void getSponsoredActiveEventBookingsBetween() {
         Controller controller = new Controller();
 
         createOlympicsProviderWith2Events(controller);
@@ -375,14 +376,14 @@ public class GovernmentReport2SystemTest {
 
         loginGovernmentRepresentative(controller);
 
-        GovernmentReport2Command cmd = new GovernmentReport2Command("Olympics Committee");
+        LocalDateTime start = LocalDateTime.now().minusWeeks(2);
+        LocalDateTime end = LocalDateTime.now().plusYears(1);
+        GovernmentReport1Command cmd = new GovernmentReport1Command(start, end);
         controller.runCommand(cmd);
-        List<Consumer> consumers = cmd.getResult();
+        List<Booking> bookings = cmd.getResult();
 
-        assertEquals(2, consumers.size());
-        assertTrue(consumers.stream().anyMatch(consumer -> consumer.getName().equals("John Biggson")));
-        assertTrue(consumers.stream().anyMatch(consumer -> consumer.getName().equals("Jane Giantsdottir")));
+        assertEquals(1, bookings.size());
+        assertEquals("Wednesday Kebede", bookings.get(0).getBooker().getName());
+        assertEquals("Frozen Ballet", bookings.get(0).getEventPerformance().getEvent().getTitle());
     }
-}class GovReport2SystemTest {
-    
 }

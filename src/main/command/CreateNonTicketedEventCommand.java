@@ -7,7 +7,7 @@ import main.model.NonTicketedEvent;
 import main.state.EventState;
 import main.state.IEventState;
 import main.state.UserState;
-import org.junit.Assert;
+
 
 public class CreateNonTicketedEventCommand extends CreateEventCommand {
 

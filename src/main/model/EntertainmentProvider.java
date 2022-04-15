@@ -79,5 +79,6 @@ public class EntertainmentProvider extends User {
     public String toString() {
         //Todo
         return mainRepEmail;
+    }
 }
 

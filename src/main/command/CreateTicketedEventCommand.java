@@ -5,7 +5,6 @@ import main.state.EventState;
 import main.state.IEventState;
 import main.state.SponsorshipState;
 import main.state.UserState;
-import org.junit.Test;
 import main.controller.Context;
 
 public class CreateTicketedEventCommand extends CreateEventCommand {

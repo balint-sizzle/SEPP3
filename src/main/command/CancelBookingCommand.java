@@ -15,10 +15,7 @@ public class CancelBookingCommand implements ICommand {
     }
 
     public void execute(Context context) {
-        boolean validBookingNumber = false;
-        boolean bookingIDContained = false;
         List<Booking> bookingList = null;
-        Booking theBooking = null;
         User user = context.getUserState().getCurrentUser();
 
         if (user instanceof Consumer) {
@@ -27,32 +24,18 @@ public class CancelBookingCommand implements ICommand {
         }
 
         for (Booking booking : bookingList) {
-            if (booking.getBookingNumber() == bookingNumber) {
-                validBookingNumber = true;
-                theBooking = booking;
+            if (booking.getBookingNumber() == this.bookingNumber) {
+                this.successResult = (booking.getStatus() == BookingStatus.Active &&
+                Duration.between(LocalDateTime.now(), booking.getEventPerformance().getStartDateTime()).toHours() > 24 && // not exactly sure this is correct
+                context.getPaymentSystem().processPayment(user.getEmail(),
+                booking.getEventPerformance().getEvent().getOrganiser().getEmail(),
+                booking.getAmountPaid()));
                 break;
             }
         }
-
-        boolean isValid = user instanceof Consumer &&
-                validBookingNumber &&
-                theBooking.getStatus() == BookingStatus.Active &&
-                Duration.between(LocalDateTime.now(),
-                        theBooking.getEventPerformance().getStartDateTime()).toHours() > 24 &&
-                context.getPaymentSystem().processPayment(user.getEmail(),
-                        theBooking.getEventPerformance().getEvent().getOrganiser().getEmail(),
-                        theBooking.getAmountPaid());
-
-        if (isValid) {
-            successResult = true;
-        }
-        else {
-            successResult = false;
-        }
-
     }
 
     public Boolean getResult() {
-        return successResult;
+        return this.successResult;
     }
 }

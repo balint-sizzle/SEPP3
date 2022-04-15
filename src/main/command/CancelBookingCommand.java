@@ -16,7 +16,6 @@ public class CancelBookingCommand implements ICommand {
 
     public void execute(Context context) {
         boolean validBookingNumber = false;
-        boolean bookingIDContained = false;
         List<Booking> bookingList = null;
         Booking theBooking = null;
         User user = context.getUserState().getCurrentUser();
@@ -26,29 +25,24 @@ public class CancelBookingCommand implements ICommand {
             bookingList = consumer.getBookings();
         }
 
-        for (Booking booking : bookingList) {
-            if (booking.getBookingNumber() == bookingNumber) {
-                validBookingNumber = true;
-                theBooking = booking;
-                break;
+        if (bookingList != null) {
+            for (Booking booking : bookingList) {
+                if (booking.getBookingNumber() == bookingNumber) {
+                    validBookingNumber = true;
+                    theBooking = booking;
+                    break;
+                }
             }
         }
 
-        boolean isValid = user instanceof Consumer &&
+        successResult = user instanceof Consumer &&
                 validBookingNumber &&
                 theBooking.getStatus() == BookingStatus.Active &&
                 Duration.between(LocalDateTime.now(),
-                        theBooking.getEventPerformance().getStartDateTime()).toHours() > 24 &&
-                context.getPaymentSystem().processPayment(user.getEmail(),
+                        theBooking.getEventPerformance().getStartDateTime()).toHours() >= 24 &&
+                context.getPaymentSystem().processRefund(user.getEmail(),
                         theBooking.getEventPerformance().getEvent().getOrganiser().getEmail(),
                         theBooking.getAmountPaid());
-
-        if (isValid) {
-            successResult = true;
-        }
-        else {
-            successResult = false;
-        }
 
     }
 

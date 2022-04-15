@@ -19,7 +19,7 @@ public class GovernmentReport1Command implements ICommand{
     public void execute(Context context) {
         List<Event> allEvents = context.getEventState().getAllEvents();
         for (Event event : allEvents) {
-            boolean isSponsored = ((TicketedEvent) event).isSponsored();
+            boolean isSponsored = event instanceof TicketedEvent && ((TicketedEvent) event).isSponsored();
             if (isSponsored && (event.getStatus() == EventStatus.ACTIVE)) {
                 List<Booking> eventBookings = context.getBookingState().findBookingsByEventNumber(event.getEventNumber());
                 for (Booking booking : eventBookings) {
@@ -33,7 +33,7 @@ public class GovernmentReport1Command implements ICommand{
 
                                             (performance.getStartDateTime().isAfter(intervalStartInclusive) &&
                                              performance.getStartDateTime().isBefore(intervalEndInclusive) &&
-                                             performance.getEndDateTime().isBefore(intervalEndInclusive)) ||
+                                             performance.getEndDateTime().isAfter(intervalEndInclusive)) ||
 
                                             (performance.getStartDateTime().isAfter(intervalStartInclusive) &&
                                              performance.getEndDateTime().isBefore(intervalEndInclusive));

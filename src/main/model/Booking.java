@@ -21,6 +21,11 @@ public class Booking {
         this.bookingDateTime = bookingDateTime;
 
     }
+
+    public Booking() {
+
+    }
+
     public long getBookingNumber(){
         return bookingNumber;
     }
@@ -52,7 +57,13 @@ public class Booking {
         BookingStatus status = BookingStatus.CancelledByProvider;
     }
     public String toString(){
-        return null;
+        return "the booking number" + bookingNumber +
+                "booker is " + booker +
+                "performance is " + performance +
+                "there are" + numTickets + "tickets"+
+                "amountPaid is" + amountPaid +
+                "bookingDateTime is" + bookingDateTime;
+
     }
 
 

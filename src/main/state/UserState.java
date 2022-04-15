@@ -3,9 +3,9 @@ import main.model.User;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserState implements IUserState{
+public class UserState implements IUserState {
 
-    protected Map<String,User> users;
+    protected Map<String, User> users;
     private User currentUser;
 
     public UserState() {
@@ -23,7 +23,7 @@ public class UserState implements IUserState{
         users.put(user.getEmail(), user);
     }
 
-    public Map<String,User> getAllUsers() {
+    public Map<String, User> getAllUsers() {
         return users;
     }
 
@@ -34,3 +34,4 @@ public class UserState implements IUserState{
     public User getCurrentUser() {
         return currentUser;
     }
+}

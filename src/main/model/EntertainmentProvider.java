@@ -1,15 +1,14 @@
 package main.model;
-import main.model.Event;
 import main.external.EntertainmentProviderSystem;
 import java.util.List;
 
 public class EntertainmentProvider extends User {
     private String orgName;
     private String orgAddress;
-    private String paymentAccountEmail;
+    private final String paymentAccountEmail;
     private String mainRepName;
-    private String mainRepEmail;
-    private String password;
+    private final String mainRepEmail;
+    private final String password;
     private List<String> otherRepNames;
     private List<String> otherRepEmails;
     private List<Event> eventList;
@@ -77,7 +76,7 @@ public class EntertainmentProvider extends User {
 
     @Override
     public String toString() {
-        //Todo
-        return mainRepEmail;
+        return null;
+    }
 }
 

@@ -1,14 +1,13 @@
 package main.model;
 
-import src.main.model.Booking;
 import java.util.List;
 
 public class Consumer extends User {
     private String name;
-    private String email;
+    private final String email;
     private String phoneNumber;
-    private String password;
-    private String paymentAccountEmail;
+    private final String password;
+    private final String paymentAccountEmail;
     private List<Booking> bookingList;
     private ConsumerPreferences preferences;
 
@@ -34,7 +33,7 @@ public class Consumer extends User {
     }
 
     public void setPreferences(ConsumerPreferences preferences) {
-        preferences = preferences;
+        this.preferences = preferences;
     }
 
     public List<Booking> getBookings() {

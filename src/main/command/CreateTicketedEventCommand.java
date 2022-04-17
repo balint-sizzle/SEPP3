@@ -1,18 +1,18 @@
 package main.command;
 
-import main.model.*;
+import main.controller.Context;
+import main.model.EntertainmentProvider;
+import main.model.EventType;
+import main.model.TicketedEvent;
 import main.state.EventState;
-import main.state.IEventState;
 import main.state.SponsorshipState;
 import main.state.UserState;
-import org.junit.Test;
-import main.controller.Context;
 
 public class CreateTicketedEventCommand extends CreateEventCommand {
 
-    private int numTickets;
-    private double ticketPrice;
-    private boolean requestSponsorship;
+    private final int numTickets;
+    private final double ticketPrice;
+    private final boolean requestSponsorship;
 
     public CreateTicketedEventCommand(String title, EventType type,
                                       int numTickets, double ticketPrice,

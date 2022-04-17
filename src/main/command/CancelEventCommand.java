@@ -2,18 +2,15 @@ package main.command;
 
 import main.controller.Context;
 import main.model.*;
-import main.state.BookingState;
-import main.state.EventState;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 public class CancelEventCommand {
 
-    private long eventId;
-    private String organiserMessage;
+    private final long eventId;
+    private final String organiserMessage;
     private Boolean successResult;
 
     public CancelEventCommand(long eventNumber, String organiserMessage) {
@@ -39,7 +36,7 @@ public class CancelEventCommand {
 
         // check all conditions before cancelling event and refunding sponsorship amount
         if ((organiserMessage.length() != 0) && (currentUser instanceof EntertainmentProvider) &&
-                (event != null) && (event.getStatus() == EventStatus.ACTIVE) &&
+                (event.getStatus() == EventStatus.ACTIVE) &&
                 (event.getOrganiser() == currentUser) && (performancesNotStarted)){
             event.cancel();
 

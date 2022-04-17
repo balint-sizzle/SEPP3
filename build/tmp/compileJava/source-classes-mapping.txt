@@ -1,16 +1,15 @@
-main/command/ListEventsOnGivenDateCommand.java
- main.command.ListEventsOnGivenDateCommand
+main/command/RegisterEntertainmentProviderCommand.java
+ main.command.RegisterEntertainmentProviderCommand
 main/state/UserState.java
  main.state.UserState
 main/model/Booking.java
  main.model.Booking
-main/command/CreateNonTicketedEventCommand.java
- main.command.CreateNonTicketedEventCommand
+main/command/ListEventsOnGivenDateCommand.java
+ main.command.ListEventsOnGivenDateCommand
 main/command/UpdateEntertainmentProviderProfileCommand.java
  main.command.UpdateEntertainmentProviderProfileCommand
-main/command/ListEventsCommand.java
- main.command.ListEventsCommand
- main.command.LogStatus
+main/command/RespondSponsorshipCommand.java
+ main.command.RespondSponsorshipCommand
 main/controller/Controller.java
  main.controller.Controller
 main/external/MockPaymentSystem.java
@@ -25,8 +24,9 @@ main/model/TicketedEvent.java
  main.model.TicketedEvent
 main/model/SponsorshipRequest.java
  main.model.SponsorshipRequest
-main/controller/Context.java
- main.controller.Context
+main/command/ListEventsCommand.java
+ main.command.ListEventsCommand
+ main.command.LogStatus
 main/state/IEventState.java
  main.state.IEventState
 main/external/PaymentSystem.java
@@ -47,8 +47,8 @@ main/state/IBookingState.java
  main.state.IBookingState
 main/state/IUserState.java
  main.state.IUserState
-main/state/EventState.java
- main.state.EventState
+test/GovernmentReport1SystemTest.java
+ GovernmentReport1SystemTest
 main/model/EventPerformance.java
  main.model.EventPerformance
 main/command/UpdateProfileCommand.java
@@ -76,8 +76,8 @@ main/command/BookEventCommand.java
 main/command/LoginCommand.java
  main.command.LoginCommand
  main.command.LoginCommand$LogStatus
-main/command/CreateTicketedEventCommand.java
- main.command.CreateTicketedEventCommand
+test/CreateEventTest.java
+ CreateEventTest
 main/external/MockEntertainmentProviderSystem.java
  main.external.MockEntertainmentProviderSystem
 main/model/NonTicketedEvent.java
@@ -104,11 +104,11 @@ main/model/BookingStatus.java
  main.model.BookingStatus
 main/model/EntertainmentProvider.java
  main.model.EntertainmentProvider
-test/CreateEventTest.java
- CreateEventTest
-main/command/RespondSponsorshipCommand.java
- main.command.RespondSponsorshipCommand
-test/GovernmentReport1SystemTest.java
- GovernmentReport1SystemTest
-main/command/RegisterEntertainmentProviderCommand.java
- main.command.RegisterEntertainmentProviderCommand
+main/state/EventState.java
+ main.state.EventState
+main/controller/Context.java
+ main.controller.Context
+main/command/CreateNonTicketedEventCommand.java
+ main.command.CreateNonTicketedEventCommand
+main/command/CreateTicketedEventCommand.java
+ main.command.CreateTicketedEventCommand

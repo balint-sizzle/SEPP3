@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GovernmentReport1SystemTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-04-17T16:49:16" hostname="SIZZLE-MACHINE" time="1.499">
+<testsuite name="GovernmentReport1SystemTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-04-17T17:22:25" hostname="SIZZLE-MACHINE" time="1.505">
   <properties/>
-  <testcase name="getSponsoredActiveEventBookingsBetween()" classname="GovernmentReport1SystemTest" time="1.499">
-    <failure message="java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-	at java.base/java.util.Objects.checkIndex(Objects.java:373)
-	at java.base/java.util.ArrayList.get(ArrayList.java:426)
-	at GovernmentReport1SystemTest.providerCancelFirstEvent(GovernmentReport1SystemTest.java:65)
-	at GovernmentReport1SystemTest.getSponsoredActiveEventBookingsBetween(GovernmentReport1SystemTest.java:368)
+  <testcase name="getSponsoredActiveEventBookingsBetween()" classname="GovernmentReport1SystemTest" time="1.505">
+    <failure message="java.util.NoSuchElementException" type="java.util.NoSuchElementException">java.util.NoSuchElementException
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:969)
+	at GovernmentReport1SystemTest.consumerBookNthTicketedEvent(GovernmentReport1SystemTest.java:82)
+	at GovernmentReport1SystemTest.getSponsoredActiveEventBookingsBetween(GovernmentReport1SystemTest.java:351)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

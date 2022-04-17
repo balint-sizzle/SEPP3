@@ -2,7 +2,6 @@ package main.command;
 
 import main.model.*;
 import main.state.EventState;
-import main.state.IEventState;
 import main.state.SponsorshipState;
 import main.state.UserState;
 import main.controller.Context;
@@ -31,9 +30,10 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
             TicketedEvent event = eventState.createTicketedEvent((EntertainmentProvider) userState.getCurrentUser(),
                     title, type, ticketPrice, numTickets);
             sponsorshipState.addSponsorshipRequest(event);
-            eventIdResult = event.getEventNumber();
+            this.eventIdResult = event.getEventNumber();
         }
 
     }
-  
+
+    public Long getResult(){return this.eventIdResult;}
 }

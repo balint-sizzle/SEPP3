@@ -1,10 +1,7 @@
-
-
 import main.command.*;
 import main.controller.Controller;
 import main.logging.Logger;
 import main.model.*;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +11,6 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -347,7 +342,6 @@ public class GovernmentReport1SystemTest {
     @Test
     void getSponsoredActiveEventBookingsBetween() {
         Controller controller = new Controller();
-
         createOlympicsProviderWith2Events(controller);
         createCinemaProviderWith3Events(controller);
         createBuskingProviderWith1Event(controller);

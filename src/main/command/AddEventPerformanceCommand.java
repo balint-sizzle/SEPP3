@@ -8,7 +8,7 @@ import main.model.EventPerformance;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class AddEventPerformanceCommand {
+public class AddEventPerformanceCommand extends Object implements ICommand{
     private final long eventNumber;
     private final String venueAddress;
     private final LocalDateTime startDateTime;

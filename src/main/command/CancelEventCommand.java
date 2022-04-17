@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public class CancelEventCommand {
+public class CancelEventCommand extends Object implements ICommand{
 
     private long eventId;
     private String organiserMessage;

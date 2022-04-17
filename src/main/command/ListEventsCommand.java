@@ -70,13 +70,13 @@ public class ListEventsCommand implements ICommand{
         }
         else{
             for (Event event : events){
-                if (event.getStatus() == EventStatus.ACTIVE) eventListResult.add(event);
+                if (event.getStatus() == EventStatus.ACTIVE) this.eventListResult.add(event);
             }
 
         }
     }
 
     public List<Event> getResult() {
-        return eventListResult;
+        return this.eventListResult;
     }
 }

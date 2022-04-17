@@ -15,7 +15,7 @@ public class Context {
     private ISponsorshipState attribute; // TODO FIGURE OUT WHAT THIS IS
 
     public Context(){
-        this.entertainmentProviderSystem = new MockEntertainmentProviderSystem();
+        this.entertainmentProviderSystem = new MockEntertainmentProviderSystem("Amazon", "Bezos@jeff.com");
         this.paymentSystem = new MockPaymentSystem();
         this.userState = new UserState();
         this.bookingState = new BookingState();

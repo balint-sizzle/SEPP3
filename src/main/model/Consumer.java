@@ -1,6 +1,6 @@
 package main.model;
 
-import src.main.model.Booking;
+import main.model.Booking;
 import java.util.List;
 
 public class Consumer extends User {

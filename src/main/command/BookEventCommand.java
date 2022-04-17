@@ -1,14 +1,17 @@
+package main.command;
+
+import main.command.ICommand;
 import main.controller.Context;
 import main.model.Consumer;
 
-public class BookEventCommand extends Object implements ICommand {
+public class BookEventCommand implements ICommand {
     //    BookEventCommand allows Consumers to book tickets for a specific EventPerformance.
 //    The command applies for the currently logged-in user.
     long eventNumber;
     long performanceNumber;
     int numTicketsRequested;
 
-    BookEventCommand(long eventNumber, long performanceNumber, int numTicketsRequested) {
+    public BookEventCommand(long eventNumber, long performanceNumber, int numTicketsRequested) {
         this.eventNumber = eventNumber;
         this.performanceNumber = performanceNumber;
         this.numTicketsRequested = numTicketsRequested;
@@ -37,7 +40,6 @@ public class BookEventCommand extends Object implements ICommand {
 
     }
 
-    @Override
     public Long getResult() {
 //A unique booking number corresponding to a Booking if successful and null otherwise
 

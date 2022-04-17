@@ -5,7 +5,7 @@ import main.model.GovernmentRepresentative;
 import main.model.SponsorshipRequest;
 import main.model.SponsorshipStatus;
 import main.model.User;
-public class RespondSponsorshipCommand {
+public class RespondSponsorshipCommand extends Object implements ICommand{
 
     private long requestId;
     private int percentToSponsor;
@@ -28,7 +28,7 @@ public class RespondSponsorshipCommand {
         }
     }
 
-    public Boolean getResult(Context context) {
+    public Boolean getResult() {
         return successResult;
     }
     

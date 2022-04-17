@@ -11,17 +11,17 @@ public class EventState implements IEventState {
     private List<Event> events;
 
     public EventState() {
-        events = new ArrayList<>();
+        this.events = new ArrayList<>();
         nextEventId = 1;
         nextPerformanceId = 1;
     }
 
     public List<Event> getAllEvents() {
-        return events;
+        return this.events;
     }
 
     public Event findEventByNumber(long eventNumber) {
-        for (Event event: events) {
+        for (Event event: this.events) {
             if (event.getEventNumber() == eventNumber) {
                 return event;
             }
@@ -34,6 +34,7 @@ public class EventState implements IEventState {
                                                    EventType type) {
         NonTicketedEvent event = new NonTicketedEvent(nextEventId, organiser, title, type);
         nextEventId++;
+        this.events.add(event);
         return event;
     }
 
@@ -44,6 +45,7 @@ public class EventState implements IEventState {
                                              int numTickets) {
         TicketedEvent event =  new TicketedEvent(nextEventId, organiser, title, type, ticketPrice, numTickets);
         nextEventId++;
+        this.events.add(event);
         return event;
     }
 
@@ -61,6 +63,7 @@ public class EventState implements IEventState {
                                         endDateTime, performerNames, hasSocialDistancing, hasAirFiltration,
                                         isOutdoors, capacityLimit, venueSize);
         nextPerformanceId++;
+        event.addPerformance(performance);
         return performance;
     }
     

@@ -15,9 +15,7 @@ public class CancelBookingCommand implements ICommand {
     }
 
     public void execute(Context context) {
-        boolean validBookingNumber = false;
         List<Booking> bookingList = null;
-        Booking theBooking = null;
         User user = context.getUserState().getCurrentUser();
 
         if (user instanceof Consumer) {
@@ -25,28 +23,21 @@ public class CancelBookingCommand implements ICommand {
             bookingList = consumer.getBookings();
         }
 
-        if (bookingList != null) {
-            for (Booking booking : bookingList) {
-                if (booking.getBookingNumber() == bookingNumber) {
-                    validBookingNumber = true;
-                    theBooking = booking;
-                    break;
-                }
-            }
+        if (!(bookingList == null || bookingList.isEmpty())){
+          for (Booking booking : bookingList) {
+              if (booking.getBookingNumber() == this.bookingNumber) {
+                  this.successResult = (booking.getStatus() == BookingStatus.Active &&
+                  Duration.between(LocalDateTime.now(), booking.getEventPerformance().getStartDateTime()).toHours() > 24 && // not exactly sure this is correct
+                  context.getPaymentSystem().processPayment(user.getEmail(),
+                  booking.getEventPerformance().getEvent().getOrganiser().getEmail(),
+                  booking.getAmountPaid()));
+                  break;
+              }
+          }
         }
-
-        successResult = user instanceof Consumer &&
-                validBookingNumber &&
-                theBooking.getStatus() == BookingStatus.Active &&
-                Duration.between(LocalDateTime.now(),
-                        theBooking.getEventPerformance().getStartDateTime()).toHours() >= 24 &&
-                context.getPaymentSystem().processRefund(user.getEmail(),
-                        theBooking.getEventPerformance().getEvent().getOrganiser().getEmail(),
-                        theBooking.getAmountPaid());
-
     }
 
     public Boolean getResult() {
-        return successResult;
+        return this.successResult;
     }
 }

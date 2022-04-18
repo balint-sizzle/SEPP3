@@ -108,15 +108,15 @@ main/command/CreateTicketedEventCommand.java
  main.command.CreateTicketedEventCommand
 main/command/RespondSponsorshipCommand.java
  main.command.RespondSponsorshipCommand
-test/BookingStateTest.java
- BookingStateTest
+main/command/BookEventCommand.java
+ main.command.BookEventCommand
 test/GovernmentReport1SystemTest.java
  GovernmentReport1SystemTest
 test/EventStateTest.java
  EventStateTest
 test/SponsorshipStateTest.java
  SponsorshipStateTest
-main/command/BookEventCommand.java
- main.command.BookEventCommand
 test/TestUserState.java
  TestUserState
+test/TestBookingState.java
+ TestBookingState

@@ -2,11 +2,11 @@ CreateEventTest.java
  CreateEventTest
 SponsorshipStateTest.java
  SponsorshipStateTest
-BookingStateTest.java
- BookingStateTest
-GovernmentReport1SystemTest.java
- GovernmentReport1SystemTest
 EventStateTest.java
  EventStateTest
+GovernmentReport1SystemTest.java
+ GovernmentReport1SystemTest
 TestUserState.java
  TestUserState
+TestBookingState.java
+ TestBookingState

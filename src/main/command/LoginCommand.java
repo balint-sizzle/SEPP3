@@ -16,25 +16,20 @@ public class LoginCommand implements ICommand{
     public LoginCommand(String login_email, String login_password){
         this.email = login_email;
         this.password = login_password;
-        this.userResult = null;
     }
 
-    @Override
     public void execute(Context context) {
-        if (context.getUserState().getAllUsers().containsKey(this.email))
-        {
-            User user = context.getUserState().getAllUsers().get(this.email);
-            if (user.checkPasswordMatch(this.password))
-            {
+        if (context.getUserState().getAllUsers().containsKey(email)) {
+            User user = context.getUserState().getAllUsers().get(email);
+            if (user.checkPasswordMatch(password)) {
                 context.getUserState().setCurrentUser(user);
-                this.userResult = user;
+                userResult = user;
             }
         }
     }
 
-    @Override
-    public Object getResult() {
-        return this.userResult;
+    public User getResult() {
+        return userResult;
     }
 
 }

@@ -20,7 +20,6 @@ public class BookingState implements IBookingState {
         this.nextBookingNumber = otherState.nextBookingNumber;
     }
 
-    @Override
     public Booking findBookingByNumber(long bookingNumber) {
         for (Booking booking : bookings) {
             if (booking.getBookingNumber() == bookingNumber) {
@@ -30,8 +29,8 @@ public class BookingState implements IBookingState {
         return null;
     }
 
-    @Override
     public List<Booking> findBookingsByEventNumber(long eventNumber) {
+        System.out.println(bookings);
         List<Booking> eventBookings = null;
         if (!(bookings==null || bookings.isEmpty())) {
             for (Booking booking : bookings) {
@@ -43,11 +42,11 @@ public class BookingState implements IBookingState {
         return eventBookings;
     }
 
-    @Override
     public Booking createBooking(Consumer booker, EventPerformance performance, int numTickets, double amountPaid) {
         Booking booking = new Booking(nextBookingNumber, booker, performance, numTickets, amountPaid, LocalDateTime.now());
         bookings.add(booking);
         nextBookingNumber++;
+        System.out.println(nextBookingNumber);
         return booking;
     }
 }

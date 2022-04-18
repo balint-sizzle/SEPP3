@@ -40,6 +40,7 @@ public class RegisterConsumerCommand implements ICommand {
         }
         else {
             newConsumerResult = new Consumer(name, email, phoneNumber, password, paymentAccountEmail);
+            context.getUserState().addUser(newConsumerResult);
         }
     }
 

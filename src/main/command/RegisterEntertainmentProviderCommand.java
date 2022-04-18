@@ -66,6 +66,7 @@ public class RegisterEntertainmentProviderCommand implements ICommand {
                                                                        otherRepNames,
                                                                        otherRepEmails);
             context.getUserState().setCurrentUser(newEntertainmentProviderResult);
+            context.getUserState().addUser(newEntertainmentProviderResult);
         }
     }
 

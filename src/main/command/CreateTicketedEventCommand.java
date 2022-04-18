@@ -35,5 +35,7 @@ public class CreateTicketedEventCommand extends CreateEventCommand {
 
     }
 
-    public Long getResult(){return this.eventIdResult;}
+    public Long getResult() {
+        return this.eventIdResult;
+    }
 }

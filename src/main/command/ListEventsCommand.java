@@ -28,10 +28,10 @@ public class ListEventsCommand implements ICommand{
     
     public void execute(Context context){
         List<Event> events = context.getEventState().getAllEvents();
+        User user = context.getUserState().getCurrentUser();
 
-        if (this.userEventsOnly){
-            User user = context.getUserState().getCurrentUser();
-            if (user != null){
+        if (user != null){
+            if (this.userEventsOnly){
                 for (Event event : events){
                     if (user instanceof Consumer){
                         Consumer consumer = (Consumer) user;
@@ -52,8 +52,9 @@ public class ListEventsCommand implements ICommand{
                                     }
                             }
                     }
-                    if (user instanceof EntertainmentProvider){
-                        if (user.equals(event.getOrganiser())){
+                    else {
+                        EntertainmentProvider provider = (EntertainmentProvider) user;
+                        if (provider.equals(event.getOrganiser())){
                             if (this.activeEventsOnly){
                                 if (event.getStatus()==EventStatus.ACTIVE){
                                     eventListResult.add(event);

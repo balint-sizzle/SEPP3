@@ -13,12 +13,12 @@ public abstract class Event {
 
     protected Event(long eventNumber, EntertainmentProvider organiser,
                     String title, EventType type) {
-        eventId = eventNumber;
+        this.eventId = eventNumber;
         this.organiser = organiser;
         this.title = title;
         this.type = type;
-        status = EventStatus.ACTIVE;
-        performances = new ArrayList<>();
+        this.status = EventStatus.ACTIVE;
+        this.performances = new ArrayList<>();
     }
 
     public long getEventNumber() {

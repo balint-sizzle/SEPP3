@@ -29,9 +29,9 @@ public class MockEntertainmentProviderSystem extends Object implements Entertain
 
     }
 
-    public int getNumTicketsLeft(long eventNumber, long performanceNumber) {
+    public static int getNumTicketsLeft(long eventNumber, long performanceNumber) {
         //Todo
-        return 0;
+        return 50;
     }
 
     public void recordNewBooking(long eventNumber,

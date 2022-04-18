@@ -6,6 +6,7 @@ public class Booking {
     long bookingNumber;
     Consumer booker;
     EventPerformance performance;
+    BookingStatus status;
     int numTickets;
     double amountPaid;
     LocalDateTime bookingDateTime;
@@ -15,6 +16,7 @@ public class Booking {
             int numTickets, double amountPaid, LocalDateTime bookingDateTime){
         this.bookingNumber = bookingNumber;
         this.booker = booker;
+        this.status = BookingStatus.Active;
         this.performance = performance;
         this.numTickets = numTickets;
         this.amountPaid = amountPaid;
@@ -25,7 +27,7 @@ public class Booking {
         return bookingNumber;
     }
     public BookingStatus getStatus(){
-        return null;
+        return status;
     }
     public Consumer getBooker(){
         return booker;
@@ -37,23 +39,12 @@ public class Booking {
         return amountPaid;
     }
     public void cancelByConsumer(){
-        //todo
-//        Sets the status to BookingStatus.CancelledByConsumer.
-        BookingStatus status = BookingStatus.CancelledByConsumer;
+        status = BookingStatus.CancelledByConsumer;
     }
     public void cancelPaymentFailed(){
-        //todo
-//        Sets the status to BookingStatus.PaymentFailed.
-        BookingStatus status = BookingStatus.PaymentFailed;
+        status = BookingStatus.PaymentFailed;
     }
     public void cancelByProvider(){
-        //todo
-//        Sets the status to BookingStatus.CancelledByProvider.
-        BookingStatus status = BookingStatus.CancelledByProvider;
+        status = BookingStatus.CancelledByProvider;
     }
-    public String toString(){
-        return null;
-    }
-
-
 }

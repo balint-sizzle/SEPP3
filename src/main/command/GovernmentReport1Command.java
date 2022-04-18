@@ -22,7 +22,8 @@ public class GovernmentReport1Command implements ICommand{
             boolean isSponsored = event instanceof TicketedEvent && ((TicketedEvent) event).isSponsored();
             if (isSponsored && (event.getStatus() == EventStatus.ACTIVE)) {
                 List<Booking> eventBookings = context.getBookingState().findBookingsByEventNumber(event.getEventNumber());
-                if (!(eventBookings==null || eventBookings.isEmpty())){
+                System.out.println("eventBookings:" + eventBookings);
+                if (!(eventBookings == null || eventBookings.isEmpty())){
                     for (Booking booking : eventBookings) {
                             EventPerformance performance = booking.getEventPerformance();
                             boolean timeInclusive = (performance.getStartDateTime().isBefore(intervalStartInclusive) &&

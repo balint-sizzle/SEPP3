@@ -1,4 +1,12 @@
 CreateEventTest.java
  CreateEventTest
+SponsorshipStateTest.java
+ SponsorshipStateTest
+BookingStateTest.java
+ BookingStateTest
 GovernmentReport1SystemTest.java
  GovernmentReport1SystemTest
+EventStateTest.java
+ EventStateTest
+TestUserState.java
+ TestUserState

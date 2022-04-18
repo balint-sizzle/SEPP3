@@ -71,8 +71,8 @@ main/command/ListSponsorshipRequestsCommand.java
  main.command.ListSponsorshipRequestsCommand
 main/state/ISponsorshipState.java
  main.state.ISponsorshipState
-main/command/BookEventCommand.java
- main.command.BookEventCommand
+main/command/CancelEventCommand.java
+ main.command.CancelEventCommand
 main/command/LoginCommand.java
  main.command.LoginCommand
  main.command.LoginCommand$LogStatus
@@ -106,9 +106,17 @@ main/model/EntertainmentProvider.java
  main.model.EntertainmentProvider
 main/command/CreateTicketedEventCommand.java
  main.command.CreateTicketedEventCommand
-test/GovernmentReport1SystemTest.java
- GovernmentReport1SystemTest
 main/command/RespondSponsorshipCommand.java
  main.command.RespondSponsorshipCommand
-main/command/CancelEventCommand.java
- main.command.CancelEventCommand
+test/BookingStateTest.java
+ BookingStateTest
+test/GovernmentReport1SystemTest.java
+ GovernmentReport1SystemTest
+test/EventStateTest.java
+ EventStateTest
+test/SponsorshipStateTest.java
+ SponsorshipStateTest
+main/command/BookEventCommand.java
+ main.command.BookEventCommand
+test/TestUserState.java
+ TestUserState

@@ -86,6 +86,7 @@ public class AddEventPerformanceCommand extends Object implements ICommand{
                     isOutdoors,
                     capacityLimit,
                     venueSize);
+            thisEvent.addPerformance(eventPerformanceResult);
         }
         else {
             eventPerformanceResult = null;

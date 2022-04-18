@@ -2,8 +2,8 @@ package main.external;
 
 public class MockPaymentSystem implements PaymentSystem {
     public boolean processPayment(String buyerAccountEmail,
-                                  String sellerAccountEmail,
-                                  double transactionAmount) {
+                                         String sellerAccountEmail,
+                                         double transactionAmount) {
         return true;
     }
 

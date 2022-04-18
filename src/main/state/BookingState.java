@@ -33,9 +33,11 @@ public class BookingState implements IBookingState {
     @Override
     public List<Booking> findBookingsByEventNumber(long eventNumber) {
         List<Booking> eventBookings = null;
-        for (Booking booking : bookings) {
-            if (booking.getEventPerformance().getEvent().getEventNumber() == eventNumber) {
-                eventBookings.add(booking);
+        if (!(bookings==null || bookings.isEmpty())) {
+            for (Booking booking : bookings) {
+                if (booking.getEventPerformance().getEvent().getEventNumber() == eventNumber) {
+                    eventBookings.add(booking);
+                }
             }
         }
         return eventBookings;

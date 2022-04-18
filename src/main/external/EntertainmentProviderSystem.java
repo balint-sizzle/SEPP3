@@ -9,7 +9,11 @@ public interface EntertainmentProviderSystem {
                               long performanceNumber,
                               LocalDateTime startDateTime,
                               LocalDateTime endDateTime);
-    int getNumTicketsLeft(long eventNumber, long performanceNumber);
+
+    static int getNumTicketsLeft(long eventNumber, long performanceNumber) {
+        return 0;
+    }
+
     void recordNewBooking(long eventNumber,
                           long performanceNumber,
                           long bookingNumber,
